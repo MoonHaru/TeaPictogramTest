@@ -71,7 +71,7 @@ public class FullscreenActivity extends AppCompatActivity {
             {"La niña salta la cuerda", "3"},           // Número de palabras: 3
             {"El niño se acuesta en cama", "6"},     // Número de palabras: 6
             {"El niño come una manzana", "5"},          // Número de palabras: 5
-            {"La niña juega con pelota", "6"}        // Número de palabras: 5
+            {"La niña juega con pelota", "5"}        // Número de palabras: 5
     };
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -210,7 +210,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para acostar
-                comp(0,frasesSep[Select]);
+                comp(0,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -218,7 +218,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para cama
-                comp(1,frasesSep[Select]);
+                comp(1,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -226,7 +226,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para comer
-                comp(2,frasesSep[Select]);
+                comp(2,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -234,7 +234,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para correr
-                comp(3,frasesSep[Select]);
+                comp(3,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -242,7 +242,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para en
-                comp(4,frasesSep[Select]);
+                comp(4,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -250,7 +250,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para la
-                comp(5,frasesSep[Select]);
+                comp(5,frasesSep[Select],frases[Select]);
 
             }
         });
@@ -259,7 +259,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para manzana
-                comp(6,frasesSep[Select]);
+                comp(6,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -267,7 +267,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para niña
-                comp(7,frasesSep[Select]);
+                comp(7,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -275,7 +275,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para niño
-                comp(8,frasesSep[Select]);
+                comp(8,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -283,7 +283,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para parqu
-                comp(9,frasesSep[Select]);
+                comp(9,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -291,7 +291,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para se
-                comp(10,frasesSep[Select]);
+                comp(10,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -299,7 +299,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para un
-                comp(11,frasesSep[Select]);
+                comp(11,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -307,7 +307,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para con
-                comp(12,frasesSep[Select]);
+                comp(12,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -315,7 +315,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para saltar cuerda
-                comp(13,frasesSep[Select]);
+                comp(13,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -323,7 +323,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para jugar
-                comp(14,frasesSep[Select]);
+                comp(14,frasesSep[Select],frases[Select]);
             }
         });
 
@@ -331,7 +331,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para jugar
-                comp(15,frasesSep[Select]);
+                comp(15,frasesSep[Select],frases[Select]);
             }
         });
             }
@@ -400,12 +400,19 @@ public class FullscreenActivity extends AppCompatActivity {
         int position = recyclerView.getAdapter().getItemCount();
         ((ImageButtonAdapter) recyclerView.getAdapter()).addItem(imageResource, position);
     }
-    private void comp(int pict,String[][] id){
+
+
+    private void comp(int pict,String[][] id,String[] count){
         Toast.makeText(getApplicationContext(), frases[4][0], Toast.LENGTH_SHORT).show();
-        if(pict == Integer.valueOf(id[recyclerView.getAdapter().getItemCount()][1])-1){
-            addImageToRecyclerView(imageResources[pict]);
-            return;
+        if(recyclerView.getAdapter().getItemCount() < Integer.valueOf(count[1])-1){
+            if(pict == Integer.valueOf(id[recyclerView.getAdapter().getItemCount()][1])-1){
+                addImageToRecyclerView(imageResources[pict]);
+                return;
+            }
+        }else{
+            
         }
+        
     }
 
     }
